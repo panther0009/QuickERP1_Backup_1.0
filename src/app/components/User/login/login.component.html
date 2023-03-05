@@ -1,0 +1,35 @@
+
+<div class="container vh-100" style="width: 600px;">
+    <div class="row justify-content-center h-100 v-50">
+        <div class="card my-auto shadow">
+        <div class="card-body px-5">
+            <div class="text-center" style="padding-bottom: 10px;">
+                <!-- <fa-icon [icon]="falock" class="fa-3x"></fa-icon> -->
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <p style="color: lightslategray; text-align: center;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your details 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+                <form>
+                    <div class="form-control" style="padding-bottom: 10px;">
+                        <input type="text" id="email"  class="w-100" placeholder="User Name" name="Username"
+                         [(ngModel)]="model.Username"/>
+                        
+                    </div>
+                    <div class="form-control" style="padding-bottom: 10px;">
+                        <input type="password" id="password" placeholder="Password" class="w-100" 
+                        name="password" [(ngModel)]="model.Password"/>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="Login()">Login</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <small><a routerLink="../forgot-password">Forgot Password</a></small>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
