@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Model_login } from 'src/app/components/User/login/login.model';
 import { Observable } from 'rxjs';
+import { Model_Modules } from '../CommonComponent/grid/grid.model';
 
 
 @Injectable({
@@ -18,4 +19,8 @@ export class ServicesHttpService {
     public post(controller:any, user: Model_login): Observable<any> {
         return this.http.post<any>(controller, user);
       }
+
+    public getModulesDTL(controller:any): Observable<any> {
+      return this.http.get<any>(controller);
+    }
 }

@@ -1,1 +1,24 @@
-<div>saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+
+        <form >
+            <mat-form-field appearance="outline">
+                <mat-label>Search...</mat-label>
+                <input formControlName="item" matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </form>
+        <!-- <div *ngFor="let a of modules"><label>{{a.Sub_Module}}</label></div> -->
+        <mat-list style="margin: 2px;">
+            <mat-list-item [routerLink]="['./', 'dashboard']" 
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</mat-list-item>
+            <ng-container *ngFor="let module of modules">
+                
+                <mat-list-item>{{module.Main_Module}}</mat-list-item>
+                <mat-list style="margin-left:30px;">
+                    <div *ngFor="let subModule of module.Sub">
+                        <mat-list-item [routerLink]="['./', subModule.grid_controller]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                            <mat-icon>{{subModule.icon}}</mat-icon>{{ subModule.Sub_Module }}
+                        </mat-list-item>
+                    </div>
+                </mat-list>
+            </ng-container>
+        </mat-list>

@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServicesPathService {
-  _login :string = 'https://localhost:44323/WeatherForecast';
-  _module : string = 'https://localhost:44323/WeatherForecast';
-  _test : string = 'https://localhost:7126/api/LoginApi/Login';
+  _login : string = 'https://localhost:7126/api/LoginApi/Login';
+  _modules : string ='https://localhost:7126/api/ModuleListApi?Username=nn';
+  _modulesDTL : string ='https://localhost:7126/api/ModulesDTLApi';
 
   constructor() { }
 }

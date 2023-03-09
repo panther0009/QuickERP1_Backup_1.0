@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
   }
 
   Login(){
-    this.api.post(this.path._test,this.model).subscribe({next:(res)=>{
+    this.api.post(this.path._login,this.model).subscribe({next:(res)=>{
         // console.log(res[0].Result);
         // alert("Successfull!"+ res[0].Result);
           if(res[0].Result=='OK')
-          this.router.navigate(['Home']);
+          this.router.navigate(['home/dashboard']);
           else{
             this.router.navigate(['**']);
           }
