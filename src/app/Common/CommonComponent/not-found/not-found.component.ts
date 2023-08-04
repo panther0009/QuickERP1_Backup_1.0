@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlbVarService } from '../../CommonTS/Glb.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(public gbl:GlbVarService) { }
 
   ngOnInit(): void {
   }
+  
 
 }

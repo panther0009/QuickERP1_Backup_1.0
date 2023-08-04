@@ -1,0 +1,21 @@
+<div style="margin-top: 10px;" class="container">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+        <div fxFlex="15">
+            <mat-form-field style="margin-right: 10px;">
+                <mat-label>Item Group Code</mat-label>
+                <input class="uppercase" matInput placeholder="Placeholder" [(ngModel)]="model.itemGroupCode"
+                    maxlength="4">
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <div fxFlex="30">
+                <mat-form-field style="margin-right: 10px;">
+                    <mat-label>Item Group Name</mat-label>
+                    <input matInput placeholder="Placeholder" maxlength="20" [(ngModel)]="model.itemGroupName">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

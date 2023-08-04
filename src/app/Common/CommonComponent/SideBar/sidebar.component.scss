@@ -1,8 +1,41 @@
+@import "/src/assets/Style/VariableStyles.scss";
+
 .side{
-    background-color: #303030;
+    background-color: $backcolor3;
     height: 83vh;
     margin-bottom: 5px;
     padding-top: 1px;
     margin-top: 5px;
    
 }
+.active {
+    background-color: $backcolor2;
+    border-radius: 10px 0px 0px 10px;
+}
+.is-active {
+    background-color: $backcolor2;
+    border-radius: 10px;
+}
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+    color: $textColor1;
+}
+
+
+.dash{
+    margin: 2px 0px;
+    background:  $backcolor;
+    border-radius: 10px;
+}
+
+.module{
+    margin: 2px 0px;
+    background:  $backcolor;
+    padding-bottom: 5px;
+}
+
+
+
+
+
+
+

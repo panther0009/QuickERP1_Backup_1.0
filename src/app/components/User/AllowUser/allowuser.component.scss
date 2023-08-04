@@ -1,0 +1,47 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+.container{
+  max-width: 900px;
+  margin:0 auto;
+
+}
+
+tr.mat-header-row {
+  height: 30px;
+  background-color: #e8a726;
+}
+tr.mat-row {
+  height: 30px;
+}
+.mat-row:nth-child(even){
+  background-color: #f7f7f8;
+}
+
+// .mat-mdc-radio-button ~ .mat-mdc-radio-button {
+//   margin-left: 0px;
+// }
+
+.smallBTN  {
+  margin-right: 1vw;
+  background: #4285F4;
+  color: white;
+  line-height: 25px;
+  height: auto;
+  width: auto;
+}
+
+
+  
+
+
+  

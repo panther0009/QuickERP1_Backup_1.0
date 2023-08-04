@@ -1,0 +1,21 @@
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #e8e9f0;
+    // object-fit:fill; /* try fill,cover,contain for different results*/
+  }
+
+  .image_container {
+    text-align: center;
+    line-height: 200px;
+}
+
+.image_container img {
+    vertical-align: middle;
+}

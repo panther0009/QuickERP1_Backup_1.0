@@ -1,26 +1,62 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Model_login } from 'src/app/components/User/login/login.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Model_Modules } from '../CommonComponent/grid/grid.model';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesHttpService {
 
-    constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    get(controller:any){
-        return this.http.get<any>(controller); 
+  public get(controller: any): Observable<any> {
+    return this.http.get<any>(controller);
+  }
+
+  public getReport(controller: any): Observable<any> {
+
+    let HTTPOptions: Object = {
+
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      responseType: 'blob'
     }
 
-    public post(controller:any, user: Model_login): Observable<any> {
-        return this.http.post<any>(controller, user);
-      }
+    return this.http.get<string>(controller, HTTPOptions);
+  }
 
-    public getModulesDTL(controller:any): Observable<any> {
-      return this.http.get<any>(controller);
-    }
+  public getGrid(controller: any): Observable<any> {
+    return this.http.get<any>(controller);
+  }
+
+  public deleteGrid(controller: any): Observable<any> {
+    return this.http.delete(controller);
+  }
+
+  public post1(controller: any, user: any): Observable<any> {
+    return this.http.post<any>(controller, user);
+  }
+
+  public post(controller: any, user: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    //headerOptions.set('Content-Type', 'application/json');
+    return this.http.post<any>(controller, user, httpOptions);
+  }
+
+  public getModulesDTL(controller: any): Observable<any> {
+    return this.http.get<any>(controller);
+  }
+
+  // Print
+  postAndGetResponse(fileName: string) {
+    return this.http.get('http://localhost:62292' + '/api/TestExport/DownloadAttachment?fileName=' + fileName, { responseType: 'blob' as 'blob' });
+  }
+
+
 }

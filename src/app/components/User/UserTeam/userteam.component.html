@@ -1,0 +1,56 @@
+<mat-stepper linear #stepper [selectedIndex]="stepIndex">
+  <form [formGroup]="FG_userteam">
+    <mat-step>
+      <ng-template matStepLabel>Fill out your name</ng-template>
+
+
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-select [(ngModel)]="model.UserDepartmentId" style="margin-right: 10px;"
+              [formControl]="FG_userteam.controls['Department']">
+              <mat-option *ngFor="let option of DepartmentList" [value]="option.PID">
+                {{ option.DepartmentName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>User Team Code</mat-label>
+            <input class="uppercase" matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamCode" maxlength="4"
+              [formControl]="FG_userteam.controls['User Team Code']" (blur)="chk_validation()">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>User Team Name</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamName"
+              [formControl]="FG_userteam.controls['User Team Name']" (blur)="chk_validation()">
+          </mat-form-field>
+
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>User Team Head</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamHead"
+              [formControl]="FG_userteam.controls['User Team Head']" (blur)="chk_validation()">
+          </mat-form-field>
+
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>Users Number</mat-label>
+            <input matInput [disabled]="true" placeholder="Placeholder" [(ngModel)]="model.UserNumber"
+              [formControl]="FG_userteam.controls['Users Number']">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-step>
+  </form>
+</mat-stepper>
+<!-- 
+<div>
+  <button (click)="goBack()" type="button">Back</button>
+  <button (click)="goForward()" type="button">Next</button>
+</div> -->

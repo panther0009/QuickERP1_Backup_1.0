@@ -1,20 +1,33 @@
 <app-header></app-header>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3" style="padding: 5px;">
-            <div class="">
-                <mat-card class="mt-1" style="margin: 2px;overflow-y: scroll;height: 84vh;">
-                    <app-sidebar></app-sidebar>
-                </mat-card>
-            </div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px" style="padding: 5px;">
+    <div fxFlex="20" *ngIf="gbl.toggle">
+        <mat-card class="mt-1" style="margin: 2px;overflow-y: scroll;padding: 0px;" [style.height.px]="gbl.SideHeight">
+            <app-sidebar></app-sidebar>
+        </mat-card>
+    </div>
+    <div fxFlex="gbl.toggleWidth">
+        <div class="">
+            <mat-card class="mt-1 main_contain" [style.height.px]="gbl.MainHeight">
+                <app-moduleheader></app-moduleheader>
+                <router-outlet></router-outlet>
+            </mat-card>
         </div>
-        <div class="col-md-9" style="padding: 5px;">
-            <div class="">
-                <mat-card class="mt-1" style="margin: 2px;overflow-y: scroll;height: 84vh;">
-                    <router-outlet></router-outlet>
-                </mat-card>
-            </div>
+        <div style="margin-top: 10px;" *ngIf="gbl.flag_save">
+            <mat-card style="padding: 5px;">
+
+                <div style="text-align: center;position: absolute; padding-top: 3px;">
+                    <button mat-button class="nxt_bck" (click)="Stepper()">Back</button>
+                    <button mat-button class="nxt_bck" (click)="Stepper()">Next</button>
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button [disabled]="!gbl.mode" mat-raised-button color="primary" style="margin-right: 10px;"
+                        (click)="Save()">{{gbl.SaveCaption}}</button>
+                    <button mat-raised-button color="warn" (click)="Cancel()">Cancel</button>
+                </div>
+
+            </mat-card>
         </div>
+
     </div>
 </div>
 <app-footer></app-footer>

@@ -1,0 +1,22 @@
+@import "/src/assets/Style/VariableStyles.scss";
+
+.backclr{
+    background-color: $backcolor;
+}
+.color1{
+    color:$textColor1;
+}
+.color2{
+    color:$textColor2;
+}
+.color3{
+    color:$textColor3;
+}
+
+.color4{
+    color:$textColor4;
+}
+
+.center{
+    text-align: right;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlbVarService } from '../../CommonTS/Glb.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+ 
+  constructor(public gbl: GlbVarService) { }
 
   ngOnInit(): void {
+  }
+  toggleme() {
+    this.gbl.toggle = !this.gbl.toggle
+    if (this.gbl.toggle) {
+      this.gbl.toggleWidth = 100
+    }
   }
 
 }

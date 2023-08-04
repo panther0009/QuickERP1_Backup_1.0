@@ -1,0 +1,49 @@
+
+<mat-stepper linear #stepper>
+    <form [formGroup]="FG_userteam">
+      <mat-step>
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>Department</mat-label>
+          <input matInput placeholder="Placeholder" [(ngModel)]="model.UserDepartmentId"
+            [formControl]="FG_userteam.controls['department']">
+  
+        </mat-form-field>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>User Team Code</mat-label>
+          <input class="uppercase" matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamCode" maxlength="4"
+          [formControl]="FG_userteam.controls['team_code']">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>User Team Name</mat-label>
+          <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamName"
+          [formControl]="FG_userteam.controls['team_name']">
+        </mat-form-field>
+  
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>User Team Head</mat-label>
+          <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamHead"
+          [formControl]="FG_userteam.controls['team_head']">
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Users Number</mat-label>
+          <input matInput [disabled]="true" placeholder="Placeholder" [(ngModel)]="model.UserNumber"
+          [formControl]="FG_userteam.controls['users_number']">
+        </mat-form-field>
+  
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+      
+     
+     
+    </form>
+  </mat-stepper>

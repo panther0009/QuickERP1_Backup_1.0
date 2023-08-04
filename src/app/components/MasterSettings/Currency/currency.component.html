@@ -1,0 +1,27 @@
+<div style="margin-top: 10px;">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Currency Code</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.CurrCode"
+                    [formControl]="FG_currency.controls['Currency Code']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Currency Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.Curr_name"
+                    [formControl]="FG_currency.controls['Currency Name']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Exchange Rate</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.ex_rate"
+                    [formControl]="FG_currency.controls['Exchange Rate']">
+            </mat-form-field>
+
+        </div>
+
+    </div>
+
+
+</div>

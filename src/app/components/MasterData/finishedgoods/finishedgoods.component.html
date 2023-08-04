@@ -1,0 +1,606 @@
+<mat-stepper linear #stepper [selectedIndex]="stepIndex">
+    <form [formGroup]="FG_userteam">
+        <mat-step>
+            <ng-template matStepLabel>Main</ng-template>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+
+
+                <div fxFlex="50">
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Item_code"
+                                    [formControl]="FG_userteam.controls['Item Code']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Old Item Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Old_Item_code"
+                                    [formControl]="FG_userteam.controls['Old Item Code']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Sample Item Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Sample_Item_Code"
+                                    [formControl]="FG_userteam.controls['Sample Item Code']">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <div class="image_container">
+                                <img src="../../assets/Image/c.png" alt="Nature" class="card-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="75">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Item_name"
+                                    [formControl]="FG_userteam.controls['Item Name']" (blur)="chk_validation()">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="25">
+                            <div style="text-align: right; padding-top: 3px;">
+                                <button mat-button class="nxt_bck">Add Photo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Sub Item Name 1</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Sub_Item_name1"
+                                    [formControl]="FG_userteam.controls['Sub Item Name 1']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Sub Item Name 2</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Sub_Item_name2"
+                                    [formControl]="FG_userteam.controls['Sub Item Name 2']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Sub Item Name 3</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Sub_Item_name3"
+                                    [formControl]="FG_userteam.controls['Sub Item Name 3']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Sub Item Name 4</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Sub_Item_name4"
+                                    [formControl]="FG_userteam.controls['Sub Item Name 4']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <div style=" padding-top: 3px;">
+                                <button mat-raised-button color="primary" class="nxt_bck" style="margin-right: 10px;">Add Size Color</button>
+                                <button mat-raised-button color="warn" class="nxt_bck">Delete Size Color</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="margin-top: 10px;">
+                        <table class="mat-table" style="border: 2px solid #3f51b5;">
+                            <tr class="mat-header-row">
+                                <th class="mat-header-cell">Inch</th>
+                                <th class="mat-header-cell">Total</th>
+                                <th class="mat-header-cell">Length</th>
+                                <th class="mat-header-cell">Width</th>
+                                <th class="mat-header-cell">Height</th>
+                                <th class="mat-header-cell">Nt. Weight</th>
+                                <th class="mat-header-cell">Gr. Weight</th>
+                                <th class="mat-header-cell">CBM</th>
+                                <th class="mat-header-cell">CFT</th>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L1</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Outer Cortan - L2</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L3</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Master Cortan - L4</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div fxFlex="50">
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item Group</mat-label>
+                                <mat-select [(ngModel)]="model.Item_Group_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Item Group']">
+                                    <mat-option *ngFor="let option of ItemGroupList" [value]="option.PID"  (blur)="chk_validation()">
+                                        {{ option.itemGroupName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item Sub Group</mat-label>
+                                <mat-select [(ngModel)]="model.Item_Sub_Group_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Item Sub Group']">
+                                    <mat-option *ngFor="let option of ItemSubGroupList" [value]="option.PID"  (blur)="chk_validation()">
+                                        {{ option.itemSubGroupName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item Category</mat-label>
+                                <mat-select [(ngModel)]="model.Item_Category_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Item Category']">
+                                    <mat-option *ngFor="let option of ItemCategoryList" [value]="option.PID">
+                                        {{ option.itemCategoryName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Item sub Category</mat-label>
+                                <mat-select [(ngModel)]="model.Item_Sub_Category_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Item sub Category']">
+                                    <mat-option *ngFor="let option of ItemSubCategoryList" [value]="option.PID">
+                                        {{ option.itemSubCategoryName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Brand</mat-label>
+                                <mat-select [(ngModel)]="model.Brand_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Brand']">
+                                    <mat-option *ngFor="let option of DepartmentList" [value]="option.PID">
+                                        {{ option.DepartmentName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Color Finish</mat-label>
+                                <mat-select [(ngModel)]="model.Color_Finish_PID" style="margin-right: 10px;"
+                                    [formControl]="FG_userteam.controls['Color Finish']">
+                                    <mat-option *ngFor="let option of DepartmentList" [value]="option.PID">
+                                        {{ option.DepartmentName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Bar Code Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Bar_Code_name"
+                                    [formControl]="FG_userteam.controls['Bar Code Name']">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Minimum Quantity</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.MinimumQuantity"
+                                    [formControl]="FG_userteam.controls['Minimum Quantity']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <table class="mat-table" style="border: 2px solid #3f51b5;">
+                            <tr class="mat-header-row">
+                                <th class="mat-header-cell">Inch</th>
+                                <th class="mat-header-cell">Total</th>
+                                <th class="mat-header-cell">Length</th>
+                                <th class="mat-header-cell">Width</th>
+                                <th class="mat-header-cell">Height</th>
+                                <th class="mat-header-cell">Nt. Weight</th>
+                                <th class="mat-header-cell">Gr. Weight</th>
+                                <th class="mat-header-cell">CBM</th>
+                                <th class="mat-header-cell">CFT</th>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L1</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Outer Cortan - L2</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L3</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Master Cortan - L4</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="margin-top: 10px;">
+                        <table class="mat-table" style="border: 2px solid #3f51b5;">
+                            <tr class="mat-header-row">
+                                <th class="mat-header-cell">Inch</th>
+                                <th class="mat-header-cell">Total</th>
+                                <th class="mat-header-cell">Length</th>
+                                <th class="mat-header-cell">Width</th>
+                                <th class="mat-header-cell">Height</th>
+                                <th class="mat-header-cell">Nt. Weight</th>
+                                <th class="mat-header-cell">Gr. Weight</th>
+                                <th class="mat-header-cell">CBM</th>
+                                <th class="mat-header-cell">CFT</th>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L1</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Outer Cortan - L2</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Inner Cortan - L3</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                            <tr class="mat-row">
+                                <td class="mat-cell">Master Cortan - L4</td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                                <td class="mat-cell">
+                                    <input type="test" style="width: 50px;" />
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <!-- <mat-form-field style="margin-right: 10px;margin-bottom: 10px;" appearance="outline">
+                <mat-label>User Team Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamName"
+                    [formControl]="FG_userteam.controls['User Team Name']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field style="margin-right: 10px;" appearance="outline">
+                <mat-label>User Team Head</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.UserTeamHead"
+                    [formControl]="FG_userteam.controls['User Team Head']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Users Number</mat-label>
+                <input matInput [disabled]="true" placeholder="Placeholder" [(ngModel)]="model.UserNumber"
+                    [formControl]="FG_userteam.controls['Users Number']">
+            </mat-form-field> -->
+        </mat-step>
+    </form>
+</mat-stepper>
+
+<!-- <div style="padding-top: 5px;">
+    <button (click)="goBack()" type="button">Back</button>
+    <button (click)="goForward()" type="button">Next</button>
+</div> -->

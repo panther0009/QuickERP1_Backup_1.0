@@ -1,7 +1,248 @@
-<mat-toolbar color="primary" style="height: 30px;">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>{{gbl.icon}}</mat-icon>
-    </button>
-    <span>{{gbl.module}}</span>
-    <span class="example-spacer"></span>
-</mat-toolbar>
+<mat-stepper linear #stepper [selectedIndex]="stepIndex">
+    <form [formGroup]="FG_buyer">
+        <mat-step>
+            <ng-template matStepLabel>Main Details</ng-template>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+                <div fxFlex="50">
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Buyer Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Buyer_Code"
+                                    [formControl]="FG_buyer.controls['Buyer Code']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Buyer Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Buyer_Name"
+                                    [formControl]="FG_buyer.controls['Buyer Name']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Address</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Address"
+                                    [formControl]="FG_buyer.controls['Address']">
+                            </mat-form-field>
+
+                        </div>
+                        <div fxFlex="45">
+                            <div class="image_container">
+                                <img [src]=pic_pth alt="Nature" class="card-image" *ngIf="pic_pth">
+                                <input #file type="file" accept='image/*' [hidden]="true"
+                                (change)="onFileSelected($event)" />
+                            </div>
+                        </div>
+                        <div fxFlex="5">
+                            <div style="margin-top: 25px;">
+                                <button mat-icon-button class="example-icon" *ngIf="!pic_pth"
+                                    aria-label="Example icon-button with menu icon" (click)="file.click()">
+                                    <mat-icon style="color:#3f51b5">add_circle</mat-icon>
+                                </button>
+                                <button mat-icon-button class="example-icon" *ngIf="pic_pth"
+                                    aria-label="Example icon-button with menu icon" (click)="file.click()">
+                                    <mat-icon style="color:#3f51b5">edit</mat-icon>
+                                </button>
+                                <button mat-icon-button class="example-icon" (click)="delete()"
+                                    aria-label="Example icon-button with menu icon">
+                                    <mat-icon style="color:red">delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="100">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <input matInput placeholder="" [(ngModel)]="model.Address2"
+                                    [formControl]="FG_buyer.controls['Address2']">
+                            </mat-form-field>
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <input matInput placeholder="" [(ngModel)]="model.Address3"
+                                    [formControl]="FG_buyer.controls['Address3']">
+                            </mat-form-field>
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <input matInput placeholder="" [(ngModel)]="model.Address4"
+                                    [formControl]="FG_buyer.controls['Address4']">
+                            </mat-form-field>
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <input matInput placeholder="" [(ngModel)]="model.Address5"
+                                    [formControl]="FG_buyer.controls['Address5']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Mobile Number</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Mobile_Number"
+                                    [formControl]="FG_buyer.controls['Mobile Number']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>City</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.City"
+                                    [formControl]="FG_buyer.controls['City']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Country</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Country"
+                                    [formControl]="FG_buyer.controls['Country']">
+                            </mat-form-field>
+
+                        </div>
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Email"
+                                    [formControl]="FG_buyer.controls['Email']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>State</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.State"
+                                    [formControl]="FG_buyer.controls['State']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>PIN Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.PIN_Code"
+                                    [formControl]="FG_buyer.controls['PIN Code']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Contact Details</ng-template>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+                <div fxFlex="50">
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Contact Person Name</mat-label>
+                                <input matInput placeholder="Placeholder"
+                                    [(ngModel)]="Model_contact.Contact_Person_Name"
+                                    [formControl]="FG_buyer.controls['Contact Person Name']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Contact Person Designation</mat-label>
+                                <input matInput placeholder="Placeholder"
+                                    [(ngModel)]="Model_contact.Contact_Person_Designation"
+                                    [formControl]="FG_buyer.controls['Contact Person Designation']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Conatct Person Contact No.</mat-label>
+                                <input matInput placeholder="Placeholder"
+                                    [(ngModel)]="Model_contact.Conatct_Person_Contact_No"
+                                    [formControl]="FG_buyer.controls['Conatct Person Contact No.']">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div>
+                <div style="text-align: right;margin: 5px;">
+                    <button mat-button class="nxt_bck" (click)="contactList()"
+                        [disabled]="!Model_contact.Contact_Person_Name">
+                        {{contactBTN}}</button>
+                </div>
+            </div>
+            <div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+                        <th mat-header-cell *matHeaderCellDef style="padding-right: 10px;">
+                            <span style="font-size: 14px; font-family: inherit;color:black"
+                                *ngIf="column=='Contact_Person_Name'">
+                                Contact Person Name</span>
+                            <span style="font-size: 14px; font-family: inherit;color:black"
+                                *ngIf="column=='Contact_Person_Designation'">
+                                Contact Person Designation</span>
+                            <span style="font-size: 14px; font-family: inherit;color:black"
+                                *ngIf="column=='Conatct_Person_Contact_No'">
+                                Conatct Person Contact No</span>
+                            <span style="font-size: 14px; font-family: inherit;color:black" *ngIf="column=='Action'">
+                                Action</span>
+                        </th>
+
+                        <td mat-cell *matCellDef="let element" style="padding-right: 10px;">
+                            <ng-container *ngIf="column !='Action'">{{element[column]}} </ng-container>
+                            <ng-container *ngIf="column =='Action'">
+                                <button (click)="editContact(element['Contact_Person_Name'],true)" mat-icon-button
+                                    class="example-icon" aria-label="Example icon-button with menu icon">
+                                    <mat-icon style="color:#3f51b5">edit</mat-icon>
+                                </button>
+                                <button (click)="deleteContact(element['Contact_Person_Name'])" mat-icon-button
+                                    class="example-icon" aria-label="Example icon-button with menu icon"
+                                    style="margin-right: -10px;">
+                                    <mat-icon style="color:red">delete</mat-icon>
+                                </button>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
+                    </tr>
+                </table>
+            </div>
+
+        </mat-step>
+
+
+
+        <mat-step>
+            <ng-template matStepLabel>Bank Details</ng-template>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+                <div fxFlex="50">
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+                        <div fxFlex="50">
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>Bank Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.Bank_Name"
+                                    [formControl]="FG_buyer.controls['Bank Name']" (blur)="chk_validation()">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>IFSC Code</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.IFSC_Code"
+                                    [formControl]="FG_buyer.controls['IFSC Code']">
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form" appearance="outline">
+                                <mat-label>A/C Number</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="model.AC_Number"
+                                    [formControl]="FG_buyer.controls['A/C Number']">
+                            </mat-form-field>
+                        </div>
+
+
+                        <div fxFlex="50">
+                            <div class="dropdown" style="margin-top: 10px;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </form>
+</mat-stepper>

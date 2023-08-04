@@ -1,0 +1,27 @@
+
+
+<div style="margin-top: 10px;">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="model.UserName"
+              [formControl]="FG_user.controls['User Name']" (blur)="chk_validation()">
+          </mat-form-field>
+
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="model.UserPassword"
+              [formControl]="FG_user.controls['Password']" (blur)="chk_validation()">
+          </mat-form-field>
+
+          <mat-form-field class="mat-form" appearance="outline">
+            <mat-label>Department</mat-label>
+            <input matInput [disabled]="true" placeholder="Placeholder" [(ngModel)]="model.UserDepartmentId"
+              [formControl]="FG_user.controls['Department']">
+          </mat-form-field>
+        </div>
+      </div>
+    
+
+</div>

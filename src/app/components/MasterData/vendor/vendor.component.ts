@@ -11,6 +11,7 @@ export class VendorComponent implements OnInit {
   constructor(public gbl:GlbVarService) { }
 
   ngOnInit(): void {
+    this.gbl.getModulesDTL();
   }
 
 }

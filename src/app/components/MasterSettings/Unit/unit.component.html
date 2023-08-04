@@ -1,0 +1,17 @@
+<div style="margin-top: 10px;">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Unit Code</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.Unit_Code"
+                    [formControl]="FG_unit.controls['Unit Code']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Unit Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.Unit_name"
+                    [formControl]="FG_unit.controls['Unit Name']" (blur)="chk_validation()">
+            </mat-form-field>
+        </div>
+    </div>
+</div>

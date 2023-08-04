@@ -1,4 +1,4 @@
-
+<!-- 
   <mat-toolbar color="primary" style="height: 30px;">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>{{icon_module}}</mat-icon>
@@ -11,79 +11,74 @@
       Add
     </button>
     
-  </mat-toolbar>
-  
-  <div class="container">
-    <div style="margin-top: 10px;">
+  </mat-toolbar> -->
+<div style="display: flex; justify-content: flex-end;margin-top: -34px;margin-right: 10px;">
+  <button mat-raised-button color="warn" (click)="add()">Add</button>
+</div>
+
+
+<div style="margin-top: 10px;">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+    <div fxFlex="30">
       <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input matInput  placeholder="Ex. Mia" #input>
+        <input matInput [(ngModel)]="Seacrchmodel.filter" (input)="onSearchChange()">
       </mat-form-field>
-      
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
-      
-          <!-- ID Column -->
-          <ng-container matColumnDef="productnName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-            <td mat-cell *matCellDef="let row"> {{row.productnName}} </td>
-          </ng-container>
-      
-          <!-- Progress Column -->
-          <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-            <td mat-cell *matCellDef="let row"> {{row.category}}% </td>
-          </ng-container>
-      
-          <!-- Name Column -->
-          <ng-container matColumnDef="fresshness">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fresshness </th>
-            <td mat-cell *matCellDef="let row"> {{row.fresshness}} </td>
-          </ng-container>
-      
-          <!-- Fruit Column -->
-          <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-            <td mat-cell *matCellDef="let row"> {{row.price | currency}} </td>
-          </ng-container>
-  
-          <ng-container matColumnDef="comment">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Comment </th>
-            <td mat-cell *matCellDef="let row"> {{row.comment}} </td>
-          </ng-container>
-  
-          <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-            <td mat-cell *matCellDef="let row"> {{row.date | date}} </td>
-          </ng-container>
-  
-          <ng-container matColumnDef="Action">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-            <td mat-cell *matCellDef="let row"> 
-              <button mat-icon-button color="primary">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-              </button>
-              
-            </td>
-          </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-          <!-- Row shown when there is no matching data. -->
-          <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-          </tr>
-        </table>
-      
-        <mat-paginator [pageSizeOptions]="[3, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-      </div>
-      
-      
-  
     </div>
-  
   </div>
+</div>
+
+
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef style="padding-right: 10px;">
+        <span style="font-size: 14px; font-family: inherit;color:black"  >
+          {{column}}</span>
+          <button (click)="getSortableColumns(column)" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon" style="margin-right: -10px;" 
+            *ngIf="column !='ACTION'">
+            <mat-icon style="color:#84125d">arrow_downward</mat-icon>
+          </button>
+      </th>
+
+      <td mat-cell *matCellDef="let element" style="padding-right: 10px;">
+        <ng-container *ngIf="column =='ACTION'">
+          <!-- <mat-icon style="color:#84125d">remove_red_eye</mat-icon>
+              <mat-icon style="color:#3f51b5">edit</mat-icon>
+              <mat-icon style="color:red">delete</mat-icon>
+              <mat-icon style="color:#126026"> print</mat-icon> -->
+          <button (click)="edit(element['PID'],false)" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon" style="margin-right: -10px;">
+            <mat-icon style="color:#84125d">remove_red_eye</mat-icon>
+          </button>
+          <button (click)="edit(element['PID'],true)" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon" style="margin-right: -10px;">
+            <mat-icon style="color:#3f51b5">edit</mat-icon>
+          </button>
+          <button (click)="delete(element['PID'])" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon" style="margin-right: -10px;">
+            <mat-icon style="color:red">delete</mat-icon>
+          </button>
+          <button (click)="print(element['PID'])" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon style="color:#126026"> print</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="column !='ACTION'">{{element[column]}} </ng-container>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
+    </tr>
+  </table>
+</div>
+
+<div style="margin-top: 10px;">
+  <mat-card style="padding: 0px;">
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,6,7,8,9, 10,11,12, 25, 100]" aria-label="Select page">
+    </mat-paginator>
+  </mat-card>
+</div>

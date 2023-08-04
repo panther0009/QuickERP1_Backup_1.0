@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../components/User/login/login.component';
-import { ForgotpasswordComponent } from '../components/User/forgotpassword/forgotpassword.component';
 import { NotFoundComponent } from '../Common/CommonComponent/not-found/not-found.component';
 import { ServicesHttpService } from '../Common/CommonTS/serviceshttp.service';
 import { ServicesPathService } from '../Common/CommonTS/servicespath.service';
@@ -23,14 +22,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatListModule} from '@angular/material/list';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotpasswordComponent,
     NotFoundComponent
   ],
   imports: [
@@ -53,7 +53,10 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     ReactiveFormsModule,
     DragDropModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatSidenavModule,
+    BrowserAnimationsModule
    
   ],
   providers: [HttpClient,ServicesHttpService,ServicesPathService],

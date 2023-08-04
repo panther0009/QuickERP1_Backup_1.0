@@ -1,0 +1,17 @@
+<div style="margin-top: 10px;" class="container">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Item Category Code</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.itemSubCategoryCode"
+                    [formControl]="FG_itemSubCategory.controls['Item Sub Category Code']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Item Category Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.itemSubCategoryName"
+                    [formControl]="FG_itemSubCategory.controls['Item Sub Category Name']" (blur)="chk_validation()">
+            </mat-form-field>
+        </div>
+    </div>
+</div>

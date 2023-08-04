@@ -1,0 +1,96 @@
+// /** custom CSS as per your :required */
+// ::ng-deep .mat-horizontal-stepper-header {
+//     box-sizing: border-box;
+//     flex-direction: column-reverse !important;
+//     height: auto;
+//     padding: 24px;
+// }
+// ::ng-deep .mat-horizontal-stepper-header .mat-step-label {
+//     padding: 0px 0px 16px !important;
+// }
+// ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after{
+//     top: 68px !important;
+// }
+
+:host ::ng-deep .mat-horizontal-content-container {
+    padding:2px !important;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  } 
+
+
+  //image style
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 250px;
+    max-height: 100px;
+    border: 1px solid #e8e9f0;
+    // object-fit:fill; /* try fill,cover,contain for different results*/
+  }
+
+  .image_container {
+    text-align: center;
+    line-height: 147px;
+}
+
+.image_container img {
+    vertical-align: middle;
+}
+
+/////////////////////////////////////////////////
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.container{
+max-width: 900px;
+margin:0 auto;
+
+}
+
+tr.mat-header-row {
+height: 30px;
+background-color: #e8a726;
+}
+tr.mat-row {
+height: 30px;
+}
+.mat-row:nth-child(even){
+background-color: #f7f7f8;
+}
+
+//input font size
+input
+{
+    font-size:12px;
+}
+
+.nxt_bck {
+  margin-right: 1vw;
+  color: white;
+  line-height: 30px;
+  height: auto;
+  width: auto;
+}

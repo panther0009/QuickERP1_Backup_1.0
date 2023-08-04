@@ -1,0 +1,35 @@
+
+
+<div style="margin-top: 10px;">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <div fxFlex="30">
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Department Code</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.DepartmentCode"
+                    [formControl]="FG_department.controls['Department Code']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Department Name</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.DepartmentName"
+                    [formControl]="FG_department.controls['Department Name']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Department Head</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.DepartmentHead"
+                    [formControl]="FG_department.controls['Department Head']" (blur)="chk_validation()">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form" appearance="outline">
+                <mat-label>Users Number</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)]="model.UserNumber"
+                    [formControl]="FG_department.controls['Users Number']" [disabled]="true">
+            </mat-form-field>
+
+        </div>
+
+    </div>
+    
+
+</div>

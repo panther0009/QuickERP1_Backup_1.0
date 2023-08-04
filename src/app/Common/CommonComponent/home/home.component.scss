@@ -1,19 +1,38 @@
-// .side{
-//     background-color: #303030;
-//     height: 83vh;
-//     margin-bottom: 5px;
-//     padding-top: 1px;
-//     margin-top: 5px;
-// }
+@import "/src/assets/Style/VariableStyles.scss";
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
     overflow-y: scroll;
-    background: white;
+    background: $backcolor1;
     //box-shadow: inset 0 0 4px #707070;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3f51b5;
+    background: $backcolor;
     border-radius: 10px;
+}
+
+.main_contain1{
+    margin: 2px;
+    overflow-y: scroll;
+    height: 84vh;
+}
+.main_contain2{
+    margin: 2px;
+    overflow-y: scroll;
+    height: 74vh;
+}
+
+ .nxt_bck {
+    margin-right: 1vw;
+    background: $BTN1;
+    color: $textColor1;
+    line-height: 30px;
+    height: auto;
+    width: auto;
+  }
+
+  .main_contain{
+    margin: 2px;
+    overflow-y: scroll;
 }
