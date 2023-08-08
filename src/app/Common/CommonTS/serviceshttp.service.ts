@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { commonMETHODS } from '../CommonComponent/common';
+import { GlbVarService } from './Glb.service';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicesHttpService {
-
-  constructor(private http: HttpClient) { }
-
+  private commonMETHODS:commonMETHODS=new commonMETHODS();
+  constructor(private http: HttpClient,private gbl: GlbVarService) {
+   
+   }
+  get Getobj()
+   {
+     return this.commonMETHODS;
+   }
+ 
   public get(controller: any): Observable<any> {
     return this.http.get<any>(controller);
   }
@@ -59,4 +68,7 @@ export class ServicesHttpService {
   }
 
 
+
 }
+
+

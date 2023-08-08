@@ -6,6 +6,7 @@ import { ServicesPathService } from 'src/app/Common/CommonTS/servicespath.servic
 import { Model_Buyer, Model_contact } from './buyer.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-buyer',
@@ -26,10 +27,11 @@ export class BuyerComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   contactBTN: string = 'Add Contact';
   selectedFile: File | null = null;
+  imgBase64: string;
 
 
   constructor(public gbl: GlbVarService, private _formBuilder: FormBuilder, private path: ServicesPathService,
-    private api: ServicesHttpService, private http: HttpClient) { }
+    private api: ServicesHttpService, private http: HttpClient, private datePipe: DatePipe) { }
 
 
   ngOnInit(): void {
@@ -55,6 +57,9 @@ export class BuyerComponent implements OnInit {
       this.model = this.gbl.model[0];
       this.model.Action = 'UPDT';
       this.gbl.InValidForm_Mess = '';
+      this.getBuyer_Contact();
+      console.log(this.model.PID)
+      this.pic_pth = this.model.Image;
     }
     this.gbl.flag_edit = false;
     this.gbl.model = this.model;
@@ -88,15 +93,13 @@ export class BuyerComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (e) => {
       this.pic_pth = reader.result;
+      if (this.pic_pth)
+        this.model.Image = this.pic_pth.toString().replace(/^.+?;base64,/, '');
+      const date = new Date();
+      const formattedDate = this.datePipe.transform(date, 'ddMMyyyyHHmmss');
+      if(formattedDate)
+      this.model.PhotoName = 'BUYER_' + this.model.Buyer_Code + '_' + formattedDate + date.getMilliseconds()+ '.jpeg';
     };
-   
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      const imageBytes = new Uint8Array(fileReader.result as ArrayBuffer);
-      const base64String = btoa(String.fromCharCode(...imageBytes));
-      this.model.Image = base64String;
-    };
-    fileReader.readAsArrayBuffer(file);
   }
 
   delete() {
@@ -136,6 +139,15 @@ export class BuyerComponent implements OnInit {
     this.model.Model_contact.splice(removeIndex, 1);
     this.dataSource = new MatTableDataSource(this.model.Model_contact);
     this.Model_contact = new Model_contact();
+  }
+
+  getBuyer_Contact() {
+    this.api.get(this.path._rootApi + this.gbl.API_Name + '/getByPID?PID=' + this.model.PID + '&Action=SHOW1').subscribe({
+      next: (res) => {
+        this.model.Model_contact = res;
+        this.dataSource = new MatTableDataSource(this.model.Model_contact);
+      }
+    })
   }
 
 

@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   user:any='akhil';
   
 
-  constructor(private path : ServicesPathService, private api : ServicesHttpService,private router:Router) { }
+  constructor(private path : ServicesPathService, private api : ServicesHttpService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.addUserForm = new FormGroup({
@@ -25,9 +26,13 @@ export class LoginComponent implements OnInit {
     });
 
     //this.Login();
+    this.api.Getobj.method()
   }
 
   Login(){
+    
+    
+   
     this.api.post(this.path._login,this.model).subscribe({next:(res)=>{
         // console.log(res[0].Result);
         // alert("Successfull!"+ res[0].Result);

@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ItemSubGroupComponent } from './itemsubgroup.component';
 
 const routes: Routes = [
-  {path:'', component:ItemSubGroupComponent},
+  {path:'', component:ItemSubGroupComponent,
+  children: [
+    {path:'Add', component: ItemSubGroupComponent},
+    {path:'Edit', component: ItemSubGroupComponent},
+    {path:'Show', component: ItemSubGroupComponent},
+  ]},
 ];
 
 @NgModule({

@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { UnitComponent } from './unit.component';
 
 const routes: Routes = [
-  {path:'', component:UnitComponent},
+  {path:'', component:UnitComponent,
+  children: [
+    {path:'Add', component: UnitComponent},
+    {path:'Edit', component: UnitComponent},
+    {path:'Show', component: UnitComponent},
+  ]},
 ];
 
 @NgModule({

@@ -1,0 +1,6 @@
+{
+    "appSettings": {
+        "encKey": "54321",
+        "apiBaseUrl": "https://localhost:7231/api/"
+    }
+}

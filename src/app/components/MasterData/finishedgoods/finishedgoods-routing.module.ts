@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FinishedGoodsComponent } from './finishedgoods.component';
 
 const routes: Routes = [
-  {path:'', component:FinishedGoodsComponent},
+  {path:'', component:FinishedGoodsComponent,
+  children: [
+    {path:'Add', component: FinishedGoodsComponent},
+    {path:'Edit', component: FinishedGoodsComponent},
+    {path:'Show', component: FinishedGoodsComponent},
+  ]},
 ];
 
 @NgModule({

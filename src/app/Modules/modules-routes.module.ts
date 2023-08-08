@@ -12,7 +12,7 @@ const routes: Routes = [
       import('../Common/CommonComponent/home/home.module').then((m)=>m.HomeModule),},
 
       //****************************************************************************************//
-      //Start Mater Data routing on 30/04/2023
+      //Start Master Data routing on 30/04/2023
       
       {path:'buyer', loadChildren:()=>
       import('../components/MasterData/buyer/buyer.module').then((m)=>m.BuyerModule),},

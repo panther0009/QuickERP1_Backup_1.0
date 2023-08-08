@@ -23,14 +23,14 @@ export class GridComponent implements OnInit {
   public Seacrchmodel: Model_Search = new Model_Search;
   displayedColumns: string[] = [];
   dataSource!: MatTableDataSource<any>;
-  icon_module: string = '';  
+  icon_module: string = '';
   name_module: string = '';
   url: string = '';
   controller = '';
   API_Name: string = '';
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  fpath: any='c:\download\aaa.pdf';
+  fpath: any = 'c:\download\aaa.pdf';
   data: any;
 
   constructor(private router: Router, public gbl: GlbVarService, private path: ServicesPathService, private api: ServicesHttpService, public dialog: MatDialog) {
@@ -63,7 +63,7 @@ export class GridComponent implements OnInit {
   getGridRecords() {
     this.api.getGrid(this.path._rootApi + this.API_Name + '?filter=' + this.Seacrchmodel.filter).subscribe({
       next: (res) => {
-        this.data=res;
+        this.data = res;
         this.dataSource = new MatTableDataSource(res);
         if (res.length > 0) {
           this.displayedColumns = Object.keys(res[0]);
@@ -131,7 +131,7 @@ export class GridComponent implements OnInit {
     this.gbl.SaveCaption = 'Save';
     this.gbl.mode = true;
     this.gbl.MainHeight = window.innerHeight - 146;
-    this.router.navigate(['home/' + this.gbl.controller]);
+    this.router.navigate(['home/' + this.gbl.controller + '//' + 'Add']);
   }
 
   edit(PID: any, mode: boolean) {
@@ -139,10 +139,13 @@ export class GridComponent implements OnInit {
     this.gbl.SaveCaption = 'Update';
     this.gbl.mode = mode;
     this.gbl.MainHeight = window.innerHeight - 146;
-    this.api.get(this.path._rootApi + this.API_Name + '/getByPID?PID=' + PID +'&Action=SHOW').subscribe({
+    this.api.get(this.path._rootApi + this.API_Name + '/getByPID?PID=' + PID + '&Action=SHOW').subscribe({
       next: (res) => {
         this.gbl.model = res;
-        this.router.navigate(['home/' + this.gbl.controller]);
+        if (mode)
+          this.router.navigate(['home/' + this.gbl.controller + '//' + 'Edit'],{ queryParams: { ID: PID } });
+        else
+          this.router.navigate(['home/' + this.gbl.controller + '//' + 'Show']);
       },
       error: (err) => {
         alert("Error while fetching the Records!")
@@ -196,11 +199,15 @@ export class GridComponent implements OnInit {
   //   window.open(url);
   // }
   getSortableColumns(columnName: string) {
-    this.data.sort((a: { Department: { toLowerCase: () => number; }; }, b: { Department: { toLowerCase: () 
-      => number; }; }) => a.Department.toLowerCase() > b.Department.toLowerCase() ? 1 : -1);
-      this.dataSource = new MatTableDataSource(this.data);
+    this.data.sort((a: { Department: { toLowerCase: () => number; }; }, b: {
+      Department: {
+        toLowerCase: ()
+          => number;
+      };
+    }) => a.Department.toLowerCase() > b.Department.toLowerCase() ? 1 : -1);
+    this.dataSource = new MatTableDataSource(this.data);
   }
-  
-  
+
+
 
 }

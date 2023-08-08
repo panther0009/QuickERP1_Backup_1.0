@@ -19,6 +19,7 @@ export class Model_Buyer {
     AC_Number: null | number;
     Action: string = 'INST';
     Image: any;
+    PhotoName :any;
 }
 
 export class Model_contact {

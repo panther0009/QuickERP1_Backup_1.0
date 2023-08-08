@@ -25,6 +25,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
    
   ],
-  providers: [HttpClient,ServicesHttpService,ServicesPathService],
+  providers: [HttpClient,ServicesHttpService,ServicesPathService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { } 
